@@ -1,19 +1,24 @@
-package org.example.mvcExample;
+package org.example.mvcExample.Multi;
 
 import javax.swing.*;
-
-
 import java.awt.*;
 import java.awt.event.*;
 
-// ===== MODEL =====
+// ===== MODEL 1: Calculator =====
 class CalculatorModel {
     public double add(double a, double b) { return a + b; }
     public double subtract(double a, double b) { return a - b; }
     public double multiply(double a, double b) { return a * b; }
-    public double divide(double a, double b) { 
+    public double divide(double a, double b) {
         if (b == 0) throw new ArithmeticException("Cannot divide by zero");
-        return a / b; 
+        return a / b;
+    }
+}
+
+// ===== MODEL 2: HelloWorld =====
+class HelloWorldModel {
+    public String getMessage() {
+        return "Hello, World!";
     }
 }
 
@@ -22,16 +27,17 @@ class CalculatorView extends JFrame {
     JTextField num1Field = new JTextField(10);
     JTextField num2Field = new JTextField(10);
     JLabel resultLabel = new JLabel("Result: ");
-    
+
     JButton addBtn = new JButton("+");
     JButton subBtn = new JButton("-");
     JButton mulBtn = new JButton("*");
     JButton divBtn = new JButton("/");
+    JButton helloBtn = new JButton("Say Hello");
 
     public CalculatorView() {
-        super("MVC Calculator");
+        super("MVC Multi-Controller Example");
 
-        setLayout(new GridLayout(4, 2, 10, 10));
+        setLayout(new GridLayout(5, 2, 10, 10));
 
         // Row 1
         add(new JLabel("Number 1:"));
@@ -41,42 +47,51 @@ class CalculatorView extends JFrame {
         add(new JLabel("Number 2:"));
         add(num2Field);
 
-        // Row 3 (Buttons)
-        JPanel btnPanel = new JPanel(new FlowLayout());
-        btnPanel.add(addBtn);
-        btnPanel.add(subBtn);
-        btnPanel.add(mulBtn);
-        btnPanel.add(divBtn);
-        add(new JLabel("Operations:"));
-        add(btnPanel);
+        // Row 3 (Math Buttons)
+        JPanel mathPanel = new JPanel(new FlowLayout());
+        mathPanel.add(addBtn);
+        mathPanel.add(subBtn);
+        mathPanel.add(mulBtn);
+        mathPanel.add(divBtn);
+        add(new JLabel("Math Ops:"));
+        add(mathPanel);
 
-        // Row 4 (Result)
+        // Row 4 (Hello button)
+        add(new JLabel("Greeting:"));
+        add(helloBtn);
+
+        // Row 5 (Result)
         add(resultLabel);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(350, 200);
+        setSize(400, 250);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     public String getNum1() { return num1Field.getText(); }
     public String getNum2() { return num2Field.getText(); }
-
     public void setResult(String text) { resultLabel.setText("Result: " + text); }
 
     public void showError(String message) {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void addListeners(ActionListener listener) {
+    // --- for Calculator controller ---
+    public void addCalcListeners(ActionListener listener) {
         addBtn.addActionListener(listener);
         subBtn.addActionListener(listener);
         mulBtn.addActionListener(listener);
         divBtn.addActionListener(listener);
     }
+
+    // --- for Hello controller ---
+    public void addHelloListeners(ActionListener listener) {
+        helloBtn.addActionListener(listener);
+    }
 }
 
-// ===== CONTROLLER =====
+// ===== CONTROLLER 1: Calculator =====
 class CalculatorController implements ActionListener {
     private CalculatorModel model;
     private CalculatorView view;
@@ -84,7 +99,7 @@ class CalculatorController implements ActionListener {
     public CalculatorController(CalculatorModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
-        this.view.addListeners(this);
+        this.view.addCalcListeners(this);
     }
 
     @Override
@@ -111,13 +126,33 @@ class CalculatorController implements ActionListener {
     }
 }
 
+// ===== CONTROLLER 2: HelloWorld =====
+class HelloWorldController implements ActionListener {
+    private HelloWorldModel model;
+    private CalculatorView view;
+
+    public HelloWorldController(HelloWorldModel model, CalculatorView view) {
+        this.model = model;
+        this.view = view;
+        this.view.addHelloListeners(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        view.setResult(model.getMessage());
+    }
+}
+
 // ===== MAIN APP =====
-public class MVCCalculator {
+public class MultiControllerDemo {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            CalculatorModel model = new CalculatorModel();
+            CalculatorModel calcModel = new CalculatorModel();
+            HelloWorldModel helloModel = new HelloWorldModel();
             CalculatorView view = new CalculatorView();
-            new CalculatorController(model, view);
+
+            new CalculatorController(calcModel, view);
+            new HelloWorldController(helloModel, view);
         });
     }
 }
