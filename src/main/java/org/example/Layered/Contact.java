@@ -1,4 +1,4 @@
-package org.example.DAO;
+package org.example.Layered;
 
 public class Contact {
     private Integer id;
