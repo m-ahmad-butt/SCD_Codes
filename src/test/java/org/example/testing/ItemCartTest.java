@@ -11,8 +11,8 @@ public class ItemCartTest {
     @Test
     public void testAddItemAndTotal() {
         Cart cart = new Cart();
-        Item a = new Item("A", 2, new BigDecimal("10.50"));
-        Item b = new Item("B", 1, new BigDecimal("5.00"));
+        Item a = new Item("A", 2, new BigDecimal("10.50"));//21
+        Item b = new Item("B", 1, new BigDecimal("5.00"));//5 ->26
         cart.addItem(a);
         cart.addItem(b);
 
