@@ -1,4 +1,4 @@
-package org.example.DAO;
+package org.example.Layered;
 
 import org.example.jdbc.database;
 

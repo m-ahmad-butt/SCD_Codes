@@ -14,6 +14,10 @@ public class StudentDAO {
     public void insertStudents(ArrayList<Hashtable<String, Object>> students) {
         String sql = "INSERT INTO students (id, name, age, grade) VALUES (?, ?, ?, ?)";
 
+        for(Hashtable<String,Object> tb:students){
+            System.out.println(tb);
+        }
+
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             for (Hashtable<String, Object> student : students) {
                 pstmt.setObject(1, student.get("id"));
@@ -81,7 +85,7 @@ public class StudentDAO {
         String sql = "DELETE FROM students WHERE id = ?";
 
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setInt(1, id);
+            pstmt.setObject(1, id);
 
             int rows = pstmt.executeUpdate();
             if (rows > 0) {
@@ -102,26 +106,26 @@ public class StudentDAO {
         ArrayList<Hashtable<String, Object>> students = new ArrayList<>();
         Hashtable<String, Object> s1 = new Hashtable<>();
         s1.put("id", 101);
-        s1.put("name", "Ali");
+        s1.put("name", "saim gay");
         s1.put("age", 21);
         s1.put("grade", "A");
         students.add(s1);
 
         Hashtable<String, Object> s2 = new Hashtable<>();
-        s2.put("id", 102);
-        s2.put("name", "Sara");
+        s2.put("id", 105);
+        s2.put("name", "ahmed");
         s2.put("age", 23);
         s2.put("grade", "B");
         students.add(s2);
 
         dao.insertStudents(students);
 
-        // --- Update ---
-        Hashtable<String, Object> updated = new Hashtable<>();
-        updated.put("name", "Sara Khan");
-        updated.put("age", 24);
-        updated.put("grade", "A");
-        dao.updateStudent(102, updated);
+        // // --- Update ---
+        // Hashtable<String, Object> updated = new Hashtable<>();
+        // updated.put("name", "Sara Khan");
+        // updated.put("age", 24);
+        // updated.put("grade", "A");
+        // dao.updateStudent(102, updated);
 
         // --- Delete ---
         dao.deleteStudent(101);
