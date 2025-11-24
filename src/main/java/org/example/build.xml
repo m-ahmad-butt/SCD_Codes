@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="AppBuild" default="verify" basedir=".">
+
+    <target name="clean">
+        <delete dir="classes"/>
+        <mkdir dir="classes"/>
+    </target>
+
+    <target name="compile" depends="clean">
+        <javac srcdir="src/main/java"
+               destdir="classes"
+               includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="APP.jar"
+             basedir="classes"
+             manifest="MANIFEST.txt"/>
+    </target>
+
+    <target name="genkey">
+        <exec executable="keytool">
+            <arg line="-genkeypair -alias myKey -keyalg RSA -keysize 2048 -validity 365 -keystore dist.jks"/>
+        </exec>
+    </target>
+
+    <target name="sign" depends="jar">
+        <exec executable="jarsigner">
+            <arg line="-keystore dist.jks APP.jar myKey"/>
+        </exec>
+    </target>
+
+    <target name="verify" depends="sign">
+        <exec executable="jarsigner">
+            <arg line="-verify APP.jar"/>
+        </exec>
+    </target>
+
+</project>
