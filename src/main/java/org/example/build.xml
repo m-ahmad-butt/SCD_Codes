@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="AppBuild" default="verify" basedir=".">
 
-    <target name="clean">
-        <delete dir="classes"/>
+<!-- From this target, I can run it like 'ant clean';
+ it's like a function, and when using ant, the operations 
+ inside the target will be executed. -->
+ 
+ <!-- ant clean -->
+    <target name="clean"> 
+        <delete dir="classes"/>  <!-- deletes the classes folder and create new empty classes folder -->
         <mkdir dir="classes"/>
     </target>
 
+<!-- ant compile -->
+<!--just executing this cmd:javac -d classes "src/main/java/org/example/*.java"-->
     <target name="compile" depends="clean">
         <javac srcdir="src/main/java"
                destdir="classes"
                includeantruntime="false"/>
     </target>
 
+<!--just executing this cmd: jar MANIFEST.txt APP.jar -C classes . -->
     <target name="jar" depends="compile">
         <jar destfile="APP.jar"
              basedir="classes"
              manifest="MANIFEST.txt"/>
     </target>
 
+<!--just executing this cmd:keytool -genkeypair -alias myKey -keyalg RSA 
+-keysize 2048 -validity 365 -keystore dist.jks  -->
     <target name="genkey">
         <exec executable="keytool">
             <arg line="-genkeypair -alias myKey -keyalg RSA -keysize 2048 -validity 365 -keystore dist.jks"/>
         </exec>
     </target>
 
+<!--just executing this cmd: jarsigner -keystore dist.jks APP.jar myKey  -->
     <target name="sign" depends="jar">
         <exec executable="jarsigner">
             <arg line="-keystore dist.jks APP.jar myKey"/>
         </exec>
     </target>
 
+<!--just executing this cmd: jarsigner -verify APP.jar  -->
     <target name="verify" depends="sign">
         <exec executable="jarsigner">
             <arg line="-verify APP.jar"/>
