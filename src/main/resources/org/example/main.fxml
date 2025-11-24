@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="MainController">
+
+    <top>
+        <Label text="Hello From FXML" />
+    </top>
+
+    <center>
+        <Button text="Click Me" onAction="#onBtnClick"/>
+    </center>
+
+</BorderPane>
