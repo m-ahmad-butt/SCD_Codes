@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
+//buttons with action performed
 public class midGUI2 extends JFrame implements ActionListener {
     private JTextField inputText;
     private JLabel outputText;

@@ -9,6 +9,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// 1- default table
+// 2- custom table
+
 // ======== CONTACT CLASS (simple POJO) ==========
 class Contact {
     String name;
@@ -94,24 +97,6 @@ public class TableHierarchyDemo extends JFrame {
         contactsModel.addContact(new Contact("Usman", "0300-1234567", "usman@gmail.com"));
         contactsModel.addContact(new Contact("Ayesha", "0333-9998888", "ayesha@yahoo.com"));
         contactsModel.addContact(new Contact("Hamza", "0321-4567890", "hamza@outlook.com"));
-
-        // Add ListSelectionListener (like in your diagram)
-        customTable.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                if (!e.getValueIsAdjusting()) {
-                    int selectedRow = customTable.getSelectedRow();
-                    if (selectedRow != -1) {
-                        Contact selected = contactsModel.getContact(selectedRow);
-                        JOptionPane.showMessageDialog(TableHierarchyDemo.this,
-                                "You selected:\n" +
-                                "Name: " + selected.name + "\n" +
-                                "Phone: " + selected.phone + "\n" +
-                                "Email: " + selected.email);
-                    }
-                }
-            }
-        });
 
         add(new JScrollPane(customTable));
     }

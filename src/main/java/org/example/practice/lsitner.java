@@ -25,7 +25,7 @@ public class lsitner extends JFrame {
         
         add(p);
 
- setLocationRelativeTo(null); // Center the frame on screen
+        setLocationRelativeTo(null); // Center the frame on screen
     }
 
       public static void main(String[] args) {

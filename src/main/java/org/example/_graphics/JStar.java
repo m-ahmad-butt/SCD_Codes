@@ -1,4 +1,4 @@
-package org.example.gui;
+package org.example._graphics;
 
 import javax.swing.JComponent;
 import java.awt.Graphics;

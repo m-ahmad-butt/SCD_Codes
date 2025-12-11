@@ -1,8 +1,11 @@
-package org.example.mvcExample.Multi;
+package org.example.mvcExample.MultiMVC;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+//2 CLASSES WHEN CLICK CAKCUKATOR AND HELLO WORLD WHEN CLICK ON + - / * BTNS call Calculator
+//controller and when click on hello world btn then we have to call Helloworld class's controller
 
 // ===== MODEL 1: Calculator =====
 class CalculatorModel {
@@ -77,7 +80,7 @@ class CalculatorView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    // --- for Calculator controller ---
+    // --- LINKER FUNCTION for Calculator controller ---
     public void addCalcListeners(ActionListener listener) {
         addBtn.addActionListener(listener);
         subBtn.addActionListener(listener);
@@ -85,7 +88,7 @@ class CalculatorView extends JFrame {
         divBtn.addActionListener(listener);
     }
 
-    // --- for Hello controller ---
+    // --- LINKER FUNCTION for Hello controller ---
     public void addHelloListeners(ActionListener listener) {
         helloBtn.addActionListener(listener);
     }
@@ -99,6 +102,9 @@ class CalculatorController implements ActionListener {
     public CalculatorController(CalculatorModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
+
+        //LINKING CALCULATOR CLASS WITH THAT 4 BTNS LIKE WHEN EITHER ONE OF THE BTN CLICKS
+        // THIS CONTROLLER CLASS WILL CALL ACTION PERFORMED FUNCTION
         this.view.addCalcListeners(this);
     }
 
@@ -134,6 +140,8 @@ class HelloWorldController implements ActionListener {
     public HelloWorldController(HelloWorldModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
+
+        //LINKING TO THAT ONE BTN
         this.view.addHelloListeners(this);
     }
 

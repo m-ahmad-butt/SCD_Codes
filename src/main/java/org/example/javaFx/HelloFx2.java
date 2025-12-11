@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+//javafx using fxml
 public class HelloFx2 extends Application {
 
     @Override

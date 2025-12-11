@@ -3,6 +3,10 @@ package org.example.mvcExample;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+//UI -> HAS FUNCTIONS THAT WILL LINK CONTROLLER WITH UI
+//CONTROLLER -> UI AND MODEL
+
+//WE CAN ADD SERVICE LAYER AS WELL
 
 // ========== MODEL ==========
 class TemperatureModel {
@@ -45,7 +49,7 @@ class TemperatureView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
-    // Attach Listener
+    // LINKER FUNCTION
     public void addConvertListener(ActionListener listener) {
         convertButton.addActionListener(listener);
     }
@@ -65,7 +69,7 @@ class TemperatureController {
         this.model = model;
         this.view = view;
 
-        // Attach event
+        // Attach event USING THAT LINKER FUNCTION
         view.addConvertListener(e -> convertTemperature());
     }
 

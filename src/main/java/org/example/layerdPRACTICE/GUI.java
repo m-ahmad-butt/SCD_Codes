@@ -10,16 +10,20 @@ import javax.swing.table.AbstractTableModel;
 
 import org.example.layerdPRACTICE.model.Item;
 
+//gui -> service -> dao and these all will use model classes in form of arraylist or hashtables
 public class GUI extends JFrame {
-    
+    private service s;
+    private JTable itemTb;
+    private ItemModel itModel;
+
     public class ItemModel extends AbstractTableModel{
         String[] cols = {"Code","Quantity","Price"};
         ArrayList<Item> it = new ArrayList<>();
 
-void addItem(Item i){
+    void addItem(Item i){
     it.add(i);
     fireTableDataChanged();
-}
+    }
         @Override
         public int getRowCount(){
             return it.size();
@@ -43,12 +47,10 @@ void addItem(Item i){
             }
         }
     }
-private service s;
-private JTable itemTb;
-private ItemModel itModel;
+
     public GUI(){
         s=new service();
-           setTitle("SAIM GAY TABLE");
+        setTitle("SAIM GAY TABLE");
         setSize(800, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(1, 1));
@@ -59,6 +61,8 @@ private ItemModel itModel;
         ArrayList<Item> dummyItems = new ArrayList<>();
         dummyItems.add(new Item("DUMMY1", 100, new java.math.BigDecimal("25.99")));
         dummyItems.add(new Item("DUMMY2", 50, new java.math.BigDecimal("75.50")));
+
+        //adding items using service
         s.addItem(dummyItems);
         
         // Load all items from database using service

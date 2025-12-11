@@ -6,6 +6,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//UI -> HAS FUNCTIONS THAT WILL LINK CONTROLLER WITH UI
+//CONTROLLER -> UI AND MODEL
+
+//WE CAN ADD SERVICE LAYER AS WELL
+
 // ===== MODEL =====
 class CalculatorModel {
     public double add(double a, double b) { return a + b; }
@@ -68,6 +73,7 @@ class CalculatorView extends JFrame {
         JOptionPane.showMessageDialog(this, message, "Error", JOptionPane.ERROR_MESSAGE);
     }
 
+    /// THIS IS LINKER FUNCTION WILL USE IN CONTROLLER CLASS
     public void addListeners(ActionListener listener) {
         addBtn.addActionListener(listener);
         subBtn.addActionListener(listener);
@@ -78,12 +84,15 @@ class CalculatorView extends JFrame {
 
 // ===== CONTROLLER =====
 class CalculatorController implements ActionListener {
+    //CONTROLLER -> VIEW AND MODEL
     private CalculatorModel model;
     private CalculatorView view;
 
     public CalculatorController(CalculatorModel model, CalculatorView view) {
         this.model = model;
         this.view = view;
+
+        /// / linked this controller to the ui class using that linker function
         this.view.addListeners(this);
     }
 

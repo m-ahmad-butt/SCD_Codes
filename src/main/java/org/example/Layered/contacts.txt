@@ -1,3 +1,0 @@
-1,Ahmad Khan,ahmad@example.com
-2,Sara Ali,sara@gmail.com
-3,Bilal Khan,bilal@outlook.com

@@ -85,9 +85,9 @@ public class Student implements Serializable {
     
 
     public static void main(String[] args) {
-        System.out.println("=== Creating and Saving Student to Disk ===\n");
+        System.out.println("-- Creating and Saving Student to Disk --\n");
         
-        Student student = new Student(1140, "Ali Ahmad", 3.5, new Date(), "myPassword123");
+        Student student = new Student(1140, "Ahmad Butt", 3.5, new Date(), "myPassword123");
         System.out.println("Student created in memory:");
         System.out.println(student);
         System.out.println("\nPassword field: " + student.getPassword() + " (will NOT be saved - it's transient)");
@@ -104,7 +104,7 @@ public class Student implements Serializable {
             out.close();
             fileOut.close();
             
-            System.out.println("\n✓✓✓ SUCCESS! ✓✓✓");
+            System.out.println("\n SUCCESS!");
             System.out.println("Student saved to hard disk at: " + new File(filename).getAbsolutePath());
             System.out.println("Check your project folder - you'll see the file: " + filename);
             
@@ -113,7 +113,7 @@ public class Student implements Serializable {
             e.printStackTrace();
         }
         
-        System.out.println("\n=== Loading Student from Disk ===\n");
+        System.out.println("\n-- Loading Student from Disk --\n");
         try {
             FileInputStream fileIn = new FileInputStream(filename);
             ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -123,7 +123,7 @@ public class Student implements Serializable {
             in.close();
             fileIn.close();
             
-            System.out.println("✓ Student loaded from disk:");
+            System.out.println("Student loaded from disk:");
             System.out.println(loadedStudent);
             System.out.println("\nNotice: Password is now null (because it was marked as transient!)");
             

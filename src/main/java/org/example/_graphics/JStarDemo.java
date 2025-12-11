@@ -1,9 +1,7 @@
-package org.example.gui;
+package org.example._graphics;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import java.awt.Graphics;
-import java.awt.Color;
 
 public class JStarDemo extends JFrame {
     public JStarDemo() {

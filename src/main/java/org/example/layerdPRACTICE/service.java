@@ -7,11 +7,12 @@ import java.util.Hashtable;
 import org.example.layerdPRACTICE.dao.shopDB;
 import org.example.layerdPRACTICE.model.Item;
 
+//gui -> service -> dao and these all will use model classes in form of arraylist or hashtables
 public class service {
-   private shopDB sh;
+   private shopDB sh; //dao
    
    public service(){
-    sh=new shopDB();
+       sh=new shopDB();
    }
 
    void addItem(ArrayList<Item> itm){
@@ -22,13 +23,13 @@ public class service {
         temp.put("code",it.getCode());
         temp.put("quantity",it.getQuantity());
         temp.put("price",it.getPrice());
-       itCum.add(temp);
+        itCum.add(temp);
     }
 
     sh.save(itCum);
    }
 
-   ArrayList<Item> getItems(){
+    ArrayList<Item> getItems(){
     ArrayList<Hashtable<String,Object>> itCum=sh.load();
     ArrayList<Item> it = new ArrayList<>();
     for(Hashtable<String,Object> h:itCum){
@@ -38,6 +39,6 @@ public class service {
         Item itPom = new Item(code, quantity, price);
         it.add(itPom);
     }
-return it;
+    return it;
    }
 }

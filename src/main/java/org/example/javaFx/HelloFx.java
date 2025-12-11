@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
+//javafx without fxml
 public class HelloFx extends Application {
 
     @Override

@@ -2,6 +2,7 @@ package org.example.mid1;
 import javax.swing.*;
 import java.awt.*;
 
+//buttons with action listeners
 public class midGUI extends JFrame {
     public midGUI() {
         setTitle("FAST Converter");
