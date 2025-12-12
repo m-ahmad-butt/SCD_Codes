@@ -1,6 +1,8 @@
 package org.example.table.todoList;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -74,6 +76,25 @@ class TodoModel extends AbstractTableModel {
     }
 }
 
+class RowSelectionListener implements ListSelectionListener {
+    private JButton editBtn, delBtn;
+    private JTable table;
+
+    public RowSelectionListener(JTable table, JButton editBtn, JButton delBtn) {
+        this.table = table;
+        this.editBtn = editBtn;
+        this.delBtn = delBtn;
+    }
+
+    @Override
+    public void valueChanged(ListSelectionEvent e) {
+        boolean rowSelected = table.getSelectedRow() >= 0;
+        editBtn.setEnabled(rowSelected);
+        delBtn.setEnabled(rowSelected);
+    }
+}
+
+
 public class todosUI extends JFrame {
     private JTable todoTb;
     private TodoModel todoMd;
@@ -110,6 +131,13 @@ public class todosUI extends JFrame {
         mainPanel.add(middlePanel);
         mainPanel.add(lowerPanel);
         add(mainPanel);
+
+        btnEdit.setEnabled(false);
+        btnDel.setEnabled(false);
+
+        todoTb.getSelectionModel().addListSelectionListener(
+                new RowSelectionListener(todoTb, btnEdit, btnDel)
+        );
 
         btnAdd.addActionListener(e -> {
             String name = fieldName.getText();
