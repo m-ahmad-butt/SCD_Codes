@@ -1,3 +1,5 @@
+package org.example.generic;
+
 public class GenericStack<T> {
     private Object[] arr;
     private int top;

@@ -1,4 +1,4 @@
-package org.example.Thread.yt;
+package org.example.Thread.quiz;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

@@ -1,4 +1,5 @@
-package org.example.Thread.yt;
+package org.example.generic_Threads;
+
 
 import java.util.ArrayList;
 

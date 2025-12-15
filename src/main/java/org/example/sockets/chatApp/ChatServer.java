@@ -1,4 +1,4 @@
-package org.example.sockets;
+package org.example.sockets.chatApp;
 
 import java.io.*;
 import java.net.*;
