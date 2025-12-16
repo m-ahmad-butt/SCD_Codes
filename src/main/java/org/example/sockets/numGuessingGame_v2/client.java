@@ -1,4 +1,4 @@
-package org.example.sockets.numGuessingGame;
+package org.example.sockets.numGuessingGame_v2;
 
 import java.io.*;
 import java.net.Socket;
