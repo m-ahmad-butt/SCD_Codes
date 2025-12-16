@@ -1,15 +1,14 @@
 package org.example.sockets.attendance;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.*;
+import java.net.Socket;
 
 class attClientThread implements Runnable {
 
     private static final Object lock = new Object();
-    private static final BufferedReader b =
+    private static final BufferedReader in =
             new BufferedReader(new InputStreamReader(System.in));
 
     @Override
@@ -19,25 +18,28 @@ class attClientThread implements Runnable {
             s = new Socket("localhost", 9000);
             PrintWriter p = new PrintWriter(s.getOutputStream(), true);
 
-            String name;
-            String rollNum;
-            String attend;
+            String n;
+            String r;
+            String a;
 
             synchronized (lock) {
-                name = b.readLine();
-                rollNum = b.readLine();
-                attend = b.readLine();
+                System.out.print("Name: ");
+                n = in.readLine();
+                System.out.print("Roll: ");
+                r = in.readLine();
+                System.out.print("Attendance: ");
+                a = in.readLine();
             }
 
-            p.println(name);
-            p.println(rollNum);
-            p.println(attend);
+            p.println(n);
+            p.println(r);
+            p.println(a);
 
         } catch (Exception e) {
         } finally {
             try {
                 s.close();
-            } catch (IOException e) {
+            } catch (Exception e) {
             }
         }
     }
@@ -45,11 +47,12 @@ class attClientThread implements Runnable {
 
 public class attClient {
     public static void main(String[] args) {
-        int i = 0;
-        while (i < Attendance._std) {
-            Thread th = new Thread(new attClientThread());
-            th.start();
-            i++;
+
+        int students = 3;
+
+        for (int i = 0; i < students; i++) {
+            Thread t = new Thread(new attClientThread());
+            t.start();
         }
     }
 }

@@ -26,22 +26,16 @@ class Bulb implements Runnable{
             String status;
             while ((status = br.readLine()) != null){
                 if(status.equals("on")){
-                    synchronized(this) {
                         this.runTime++;
-                    }
                     System.out.println("[Bulb #" + this.id + "] on (Runtime: " + this.runTime + ")");
                 }
                 else if(status.equals("off")){
-                    synchronized(this) {
                         this.runTime = 0;
-                    }
                     System.out.println("[Bulb #" + this.id + "] off");
                 }
                 // check threshold
-                synchronized(this) {
                     if(this.runTime >= this.threshold){
                         System.out.println("[WARNING] Bulb #" + this.id + " ran for "+ this.runTime + " and exceeded threshold (" + this.threshold + ")");
-                    }
                 }
             }
         } catch (IOException e) {
