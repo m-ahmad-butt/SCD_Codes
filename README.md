@@ -50,6 +50,7 @@ This repo is for my personal practice for Software Construction and Development 
 ### 11. **Past Paper Solutions (Fall 2024)**
 - **Smart Bulb System** (`sockets/bulb`): Smart home bulb control simulation using sockets.
 - **Shopping Cart** (`table/shopping_cart`): MVC-based shopping cart implementation using 2 Swing tables.
+- **Etch-a-Sketch** (`_graphics/Fall_2022/Question4.java`): Question 4 solution using Java Swing (JFrame/paintComponent) to move an 'X' with history trail.
 
 ### 12. **Additional Network Programming**
 - **Number Guessing Game** (`sockets/numGuessingGame_v2`, `sockets/numberGame`): Multiplayer variants.
