@@ -1,2 +1,0 @@
-PrintWriter example line
-Another PrintWriter line
