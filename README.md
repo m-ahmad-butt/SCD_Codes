@@ -7,7 +7,7 @@ This repo is for my personal practice for Software Construction and Development 
 - FXML integration
 
 ### 2. **Java Swing** (`_graphics/`, `layouts/`, `practice/`)
-- Custom graphics (JStar, JStarDemo)
+- Custom graphics (JStar, JStarDemo, drawImage)
 - Layout managers:
   - BorderLayout
   - BoxLayout
@@ -20,14 +20,14 @@ This repo is for my personal practice for Software Construction and Development 
 - **ORM/Hibernate** (`ORM/`)
 
 ### 4. **Architectures**
-- **MVC Pattern** (`mvcExample/`, `practice/`):
+- **MVC Pattern** (`mvcArchitecture/`, `practice/`):
   - Calculator implementation
   - Temperature converter
   - Multi-MVC examples
-- **Layered Architecture** (`layerdPRACTICE/`): GUI, Service, DAO layers
+- **Layered Architecture** (`layerdArchitecture/`): GUI, Service, DAO layers
 
 ### 5. **Network Programming**
-- **RMI (Remote Method Invocation)** (`RMI_sockets/`): Client-server communication
+- **RMI (Remote Method Invocation)** (`RMI/`): Client-server communication using RMI
 - **Sockets** (`sockets/`): Echo client-server, simple client-server implementations
 
 ### 6. **Serialization** (`serielization/`)
@@ -46,6 +46,32 @@ This repo is for my personal practice for Software Construction and Development 
 
 ### 10. **Unit Testing** (`testing/`)
 - JUnit test cases
+
+### 11. **Past Paper Solutions (Fall 2024)**
+- **Smart Bulb System** (`sockets/bulb`): Smart home bulb control simulation using sockets.
+- **Shopping Cart** (`table/shopping_cart`): MVC-based shopping cart implementation using 2 Swing tables.
+
+### 12. **Additional Network Programming**
+- **Number Guessing Game** (`sockets/numGuessingGame_v2`, `sockets/numberGame`): Multiplayer variants.
+- **Rock Paper Scissors** (`sockets/rockPaper`): Client-Server implementation.
+- **O2 Measurement System** (`sockets/measureO2`): Oxygen level monitoring simulation.
+- **Attendance System** (`sockets/attendance`): Client-Server attendance tracking.
+
+### 13. **Web Connectivity** (`Web_Connectivity/`)
+- HTTP GET and POST request handling with Swing integration.
+
+### 14. **Multithreading Patterns** (`Thread/producerConsumer`)
+- **Producer-Consumer Pattern**: Implementation using `BoundedBuffer`.
+
+### 15. **References & Cheat Sheets**
+- **Notes** (`Notes/`): 
+  - Archiving and Distribution
+  - Github Guide
+  - ORM, Beans, and Serialization
+  - Object Serialization
+- **Cheat Sheets**:
+  - `jar.txt`: Quick reference for JAR creation and signing commands.
+  - `extends_implements.txt`: Mnemonics and quick reference for `extends` vs `implements`.
 
 ## How to Run
 ### Prerequisites
@@ -95,7 +121,4 @@ Simply run any Swing class with a `main` method directly from your IDE.
 ## Database Configuration
 SQL-lite3
 ### System Properties
-The `system.properties` file in `src/main/resources/` contains database connection settings:
-```properties
-DB_URL=jdbc:sqlite:your_db_file_path
-```
+The `system.properties` file is already present in `src/main/resources/` (don't worry, I have pushed that as well).
