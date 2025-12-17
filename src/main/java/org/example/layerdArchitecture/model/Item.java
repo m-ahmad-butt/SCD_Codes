@@ -1,4 +1,4 @@
-package org.example.layerdPRACTICE.model;
+package org.example.layerdArchitecture.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

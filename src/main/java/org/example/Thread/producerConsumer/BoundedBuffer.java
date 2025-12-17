@@ -1,4 +1,4 @@
-package org.example.pct;
+package org.example.Thread.producerConsumer;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;

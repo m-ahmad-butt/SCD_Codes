@@ -1,4 +1,4 @@
-package org.example.mid1;
+package org.example.mid1Practice;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

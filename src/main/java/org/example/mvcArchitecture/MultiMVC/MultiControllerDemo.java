@@ -1,4 +1,4 @@
-package org.example.mvcExample.MultiMVC;
+package org.example.mvcArchitecture.MultiMVC;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,14 +1,24 @@
 package org.example.jdbc;
  import java.sql.*;
  import java.util.*;
- import org.example.jdbc.database;
 
  public class StudentDAO {
      private final Connection conn;
 
      public StudentDAO() {
-         this.conn = database.getInstance().getConnection();
-     }
+        this.conn = database.getInstance().getConnection();
+        createTable();
+    }
+
+    private void createTable() {
+        // Schema from schema.txt
+        String sql = "CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT NOT NULL, age INTEGER, grade TEXT)";
+        try (Statement stmt = conn.createStatement()) {
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
      // ---------------- CREATE ----------------
      public void insertStudents(ArrayList<Hashtable<String, Object>> students) {
@@ -106,7 +116,7 @@ package org.example.jdbc;
          ArrayList<Hashtable<String, Object>> students = new ArrayList<>();
          Hashtable<String, Object> s1 = new Hashtable<>();
          s1.put("id", 101);
-         s1.put("name", "saim gay");
+         s1.put("name", "saim");
          s1.put("age", 21);
          s1.put("grade", "A");
          students.add(s1);

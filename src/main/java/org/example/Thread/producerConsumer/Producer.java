@@ -1,5 +1,5 @@
 
-package org.example.pct;
+package org.example.Thread.producerConsumer;
 
 
 public class Producer extends Thread {

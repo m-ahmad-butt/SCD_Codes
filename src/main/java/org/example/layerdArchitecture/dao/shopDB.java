@@ -1,4 +1,4 @@
-package org.example.layerdPRACTICE.dao;
+package org.example.layerdArchitecture.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

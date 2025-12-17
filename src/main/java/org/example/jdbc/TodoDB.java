@@ -1,7 +1,6 @@
 package org.example.jdbc;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class TodoDB {

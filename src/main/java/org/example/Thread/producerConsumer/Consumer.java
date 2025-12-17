@@ -1,4 +1,4 @@
-package org.example.pct;
+package org.example.Thread.producerConsumer;
 
 import static java.lang.Thread.sleep;
 

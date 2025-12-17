@@ -1,4 +1,4 @@
-package org.example.layerdPRACTICE;
+package org.example.layerdArchitecture;
 
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
 
-import org.example.layerdPRACTICE.model.Item;
+import org.example.layerdArchitecture.model.Item;
 
 //gui -> service -> dao and these all will use model classes in form of arraylist or hashtables
 public class GUI extends JFrame {

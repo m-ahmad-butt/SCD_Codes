@@ -1,11 +1,11 @@
-package org.example.layerdPRACTICE;
+package org.example.layerdArchitecture;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
-import org.example.layerdPRACTICE.dao.shopDB;
-import org.example.layerdPRACTICE.model.Item;
+import org.example.layerdArchitecture.dao.shopDB;
+import org.example.layerdArchitecture.model.Item;
 
 //gui -> service -> dao and these all will use model classes in form of arraylist or hashtables
 public class service {

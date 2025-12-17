@@ -93,7 +93,7 @@ public class Student implements Serializable {
         System.out.println("\nPassword field: " + student.getPassword() + " (will NOT be saved - it's transient)");
         
         // Step 2: Save the student to hard disk as a .ser file
-        String filename = "student_saved.ser";
+        String filename = "src//main//java//org//example//serielization//student_saved.ser";
         try {
             FileOutputStream fileOut = new FileOutputStream(filename);
             
