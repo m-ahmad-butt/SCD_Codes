@@ -51,7 +51,7 @@ class Bulb implements Runnable{
 
 }
 
-public class bulbServer {
+public class BulbServer {
     private static Integer threshold = 3;
     private static Integer port = 9000;
     // Using AtomicInteger for thread-safe counter

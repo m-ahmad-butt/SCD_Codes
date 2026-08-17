@@ -6,7 +6,7 @@ package org.example.jdbc;
      private final Connection conn;
 
      public StudentDAO() {
-        this.conn = database.getInstance().getConnection();
+        this.conn = Database.getInstance().getConnection();
         createTable();
     }
 

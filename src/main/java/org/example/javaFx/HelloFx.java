@@ -1,4 +1,4 @@
-package org.example.javaFx;
+package org.example.javafx;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,8 +12,14 @@ public class HelloFx extends Application {
 
     @Override
     public void start(Stage st) {
-        Label l = new Label("Hello JavaFX");
+        Label l = new Label("Count: 0");
         Button b = new Button("Click Me");
+
+        final int[] count = {0};
+        b.setOnAction(e -> {
+            count[0]++;
+            l.setText("Count: " + count[0]);
+        });
 
         BorderPane p = new BorderPane();
         p.setTop(l);

@@ -1,4 +1,4 @@
-package org.example.RMI;
+package org.example.rmi;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -10,7 +10,7 @@ import java.util.Arrays;
  * - Implements Remote Interface
  * - Constructor must call super() and throw RemoteException
  */
-public class BestServer extends UnicastRemoteObject implements I_Srvc {
+public class BestServer extends UnicastRemoteObject implements RemoteService {
     
     // Constructor
     public BestServer() throws RemoteException {

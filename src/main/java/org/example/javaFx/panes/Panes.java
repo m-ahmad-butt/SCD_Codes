@@ -1,4 +1,4 @@
-package org.example.javaFx.panes;
+package org.example.javafx.panes;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

@@ -1,4 +1,4 @@
-package org.example.ORM;
+package org.example.orm;
 public class Main {
    public static void main(String[] args) {
        UserDAO dao = new UserDAO();

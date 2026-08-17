@@ -41,7 +41,7 @@ class BulbClientThread implements Runnable {
     }
 }
 
-public class bulbClient {
+public class BulbClient {
     private static final String HOST = "localhost";
     private static final int PORT = 9000;
     private static final int NUM_CLIENTS = 3; // Number of concurrent client threads

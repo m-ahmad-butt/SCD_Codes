@@ -1,4 +1,4 @@
-package org.example.sockets.measureO2;
+package org.example.sockets.measureo2;
 import java.io.*;
 import java.net.*;
 

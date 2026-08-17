@@ -1,4 +1,4 @@
-package org.example.RMI;
+package org.example.rmi;
 
 import java.rmi.Naming;
 
@@ -12,7 +12,7 @@ public class ClientMain {
     public static void main(String[] args) {
         try {
             // 1. Lookup remote object
-            I_Srvc service = (I_Srvc) Naming.lookup("rmi://localhost:1099/MyService");
+            RemoteService service = (RemoteService) Naming.lookup("rmi://localhost:1099/MyService");
             System.out.println("Connected to server");
             
             // 2. Call remote methods
