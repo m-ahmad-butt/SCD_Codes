@@ -1,4 +1,4 @@
-# Ant — quiz JARs
+# Ant
 
 From the repo root.
 
