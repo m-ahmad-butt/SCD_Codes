@@ -27,6 +27,6 @@
         <property name="hibernate.current_session_context_class">thread</property>
         
         <!-- Mapped entity classes -->
-        <mapping class="org.example.ORM.User"/>
+        <mapping class="org.example.orm.User"/>
     </session-factory>
 </hibernate-configuration>

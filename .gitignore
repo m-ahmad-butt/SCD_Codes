@@ -28,6 +28,7 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
+classes/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
@@ -36,3 +37,9 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### Runtime data (SQLite, serialization, file-handling output) ###
+data/*.db
+data/*.ser
+data/*.txt
+!data/.gitkeep

@@ -1,4 +1,4 @@
-package org.example.ORM;
+package org.example.orm;
 
 import jakarta.persistence.*;
 

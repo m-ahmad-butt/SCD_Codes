@@ -7,7 +7,7 @@ public class TodoDB {
     private final Connection conn;
 
     public TodoDB() {
-        this.conn = database.getInstance().getConnection();
+        this.conn = Database.getInstance().getConnection();
         createTableIfNotExists();
     }
 

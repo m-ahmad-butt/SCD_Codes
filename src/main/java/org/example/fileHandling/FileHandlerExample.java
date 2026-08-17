@@ -1,4 +1,4 @@
-package org.example.fileHandling;
+package org.example.filehandling;
 
 import java.io.*;
 
@@ -7,7 +7,7 @@ public class FileHandlerExample {
     public static void main(String[] args) {
         try {
             // Reading first file (comma separated)
-            BufferedReader br1 = new BufferedReader(new FileReader("src//main//java//org//example//fileHandling//file1.txt"));
+            BufferedReader br1 = new BufferedReader(new FileReader("src/main/resources/filehandling/file1.txt"));
             String line1;
             System.out.println("Reading file1.txt (comma separated):");
             while ((line1 = br1.readLine()) != null) {
@@ -17,7 +17,7 @@ public class FileHandlerExample {
             br1.close();
 
             // Reading second file (custom separators | ?)
-            BufferedReader br2 = new BufferedReader(new FileReader("src//main//java//org//example//fileHandling//file2.txt"));
+            BufferedReader br2 = new BufferedReader(new FileReader("src/main/resources/filehandling/file2.txt"));
             String line2;
             System.out.println("\nReading file2.txt (custom separators | ? .):");
             while ((line2 = br2.readLine()) != null) {
@@ -27,14 +27,14 @@ public class FileHandlerExample {
             br2.close();
 
             // Writing to a new file using BufferedWriter
-            BufferedWriter bw = new BufferedWriter(new FileWriter("src//main//java//org//example//fileHandling//output.txt", true));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("data/filehandling-output.txt", true));
             bw.write("BufferedWriter example line\n");
             bw.write("Another line\n");
             bw.flush();
             bw.close();
 
             // Writing to a new file using PrintWriter
-            PrintWriter pw = new PrintWriter(new FileWriter("src//main//java//org//example//fileHandling//output2.txt", true));
+            PrintWriter pw = new PrintWriter(new FileWriter("data/filehandling-output2.txt", true));
             pw.println("PrintWriter example line");
             pw.println("Another PrintWriter line");
             pw.flush();

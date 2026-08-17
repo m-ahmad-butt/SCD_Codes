@@ -6,13 +6,13 @@ import java.sql.DriverManager;
 import java.util.Properties;
 
 //connection
-public class database {
-    private static database instance;        
+public class Database {
+    private static Database instance;        
     private Connection connection;     
     private String jdbcUrl;
 
-    private database() {
-        try (InputStream input = database.class.getClassLoader().getResourceAsStream("system.properties")) {
+    private Database() {
+        try (InputStream input = Database.class.getClassLoader().getResourceAsStream("system.properties")) {
             if (input == null) {
                 System.out.println("Unable to find system.properties");
             } else {
@@ -32,11 +32,11 @@ public class database {
         }
     }
 
-    public static database getInstance() {
+    public static Database getInstance() {
         if (instance == null) {
-            synchronized (database.class) {
+            synchronized (Database.class) {
                 if (instance == null) {
-                    instance = new database();
+                    instance = new Database();
                 }
             }
         }

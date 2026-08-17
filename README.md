@@ -1,142 +1,97 @@
-This repo is for my personal practice for Software Construction and Development course, containing practical implementations and demonstrations of various advanced Java topics.
+This repo is a set of Software Construction and Development (SCD) demos. Each topic lives in its own package under `src/main/java/org/example/`.
 
-## Fall 2025
-### Mid Term 1
-1. **Generic Stack**: Implementation of a generic stack data structure.
-2. **Basic GUI Java Swing**: Working with components like buttons, labels, text fields, etc.
-3. **Github**: Version control basics.
+## Layout
 
-### Mid Term 2
-1. **Layered Architecture**: Implementation including `drawImage` within `paintComponent`.
-2. **JUnit**: Unit testing (Tic Tac Toe Game).
-
-### Final
-1. **Question 1**: Draw a line chart with X(Years) and Y(numbers like 0,10,20...) axes.
-2. **Question 2**: Web connectivity using POST method (Login Page) using Swing Worker.
-3. **Question 3**: JUnit testing (something related to courier package).
-4. **Question 4**: Github concepts.
-5. **Question 5**: Release management.
-
-## Topics Covered
-### 1. **JavaFX** (`javaFx/`)
-- JavaFX fundamentals (HelloFx, HelloFx2)
-- Panes and layout management
-- FXML integration
-
-### 2. **Java Swing** (`_graphics/`, `layouts/`, `practice/`)
-- Custom graphics (JStar, JStarDemo, drawImage, Fall 2022 paper Question 4)
-- Layout managers:
-  - BorderLayout
-  - BoxLayout
-  - FlowLayout
-- GUI components and event listeners
-- Table components
-
-### 3. **Database Connectivity**
-- **JDBC** (`jdbc/`)
-- **ORM/Hibernate** (`ORM/`)
-
-### 4. **Architectures**
-- **MVC Pattern** (`mvcArchitecture/`, `practice/`):
-  - Calculator implementation
-  - Temperature converter
-  - Multi-MVC examples
-- **Layered Architecture** (`layerdArchitecture/`): GUI, Service, DAO layers
-
-### 5. **Network Programming**
-- **RMI (Remote Method Invocation)** (`RMI/`): Client-server communication using RMI
-- **Sockets** (`sockets/`): Echo client-server, simple client-server implementations
-
-### 6. **Serialization** (`serielization/`)
-- Object serialization with Student class
-
-### 7. **Reflection** (`reflection/`)
-- Shape hierarchy with reflection (Circle, Rectangle, Shape)
-
-### 8. **Annotations** (`annotation/`)
-- Custom annotation creation
-- Annotation processing
-- Header annotation demo
-
-### 9. **Multithreading** (`Thread/`)
-- Thread management and synchronization
-
-### 10. **Unit Testing** (`testing/`)
-- JUnit test cases
-
-### 11. **Past Paper Solutions (Fall 2024)**
-- **Smart Bulb System** (`sockets/bulb`): Smart home bulb control simulation using sockets.
-- **Shopping Cart** (`table/shopping_cart`): MVC-based shopping cart implementation using 2 Swing tables.
-- **Etch-a-Sketch** (`_graphics/Fall_2022/Question4.java`): Question 4 solution using Java Swing (JFrame/paintComponent) to move an 'X' with history trail.
-
-### 12. **Additional Network Programming**
-- **Number Guessing Game** (`sockets/numGuessingGame_v2`, `sockets/numberGame`): Multiplayer variants.
-- **Rock Paper Scissors** (`sockets/rockPaper`): Client-Server implementation.
-- **O2 Measurement System** (`sockets/measureO2`): Oxygen level monitoring simulation.
-- **Attendance System** (`sockets/attendance`): Client-Server attendance tracking.
-
-### 13. **Web Connectivity** (`Web_Connectivity/`)
-- HTTP GET and POST request handling with Swing integration.
-
-### 14. **Multithreading Patterns** (`Thread/producerConsumer`)
-- **Producer-Consumer Pattern**: Implementation using `BoundedBuffer`.
-
-### 15. **References & Cheat Sheets**
-- **Notes** (`Notes/`): 
-  - Archiving and Distribution
-  - Github Guide
-  - ORM, Beans, and Serialization
-  - Object Serialization
-- **Cheat Sheets**:
-  - `jar.txt`: Quick reference for JAR creation and signing commands.
-  - `extends_implements.txt`: Mnemonics and quick reference for `extends` vs `implements`.
-
-## How to Run
-### Prerequisites
-- JDK 24 (or compatible version)
-- Maven 3.x
-- IDE (IntelliJ IDEA recommended)
-
-### Running JavaFX Applications
-#### Using Maven
-1. **Update the main class in `pom.xml`**:
-   Find the `javafx-maven-plugin` configuration section in `pom.xml` and change the `<mainClass>` to your desired JavaFX class:
-   ```xml
-   <configuration>
-       <mainClass>org.example.javaFx.HelloFx</mainClass>
-   </configuration>
-   ```
-   Examples:
-   - For `HelloFx`: `org.example.javaFx.HelloFx`
-   - For `HelloFx2`: `org.example.javaFx.HelloFx2`
-   - For `Panes`: `org.example.javaFx.panes.Panes`
-
-2. **Run the application**:
-   ```bash
-   mvn clean javafx:run
-   ```
-
-### Running Java Swing Applications
-Java Swing applications can be run directly without additional configuration since Swing is included in the JDK.
-#### Option 1: Using Maven
-```bash
-mvn clean compile
-mvn exec:java -Dexec.mainClass="org.example.layouts.FlowLayoutShowcase"
 ```
-Replace the main class with any of the following:
-- `org.example._graphics.JStarDemo` - Graphics demo
-- `org.example.layouts.BorderLayoutDemo` - BorderLayout example
-- `org.example.layouts.BoxLayoutShowcase` - BoxLayout example
-- `org.example.layouts.FlowLayoutShowcase` - FlowLayout example
-- `org.example.layouts.LayoutComparisonDemo` - Compare different layouts
-- `org.example.practice.table` - Table component demo
-- `org.example.mid1.midGUI` - GUI practice
-- `org.example.mvcExample.MVCCalculator` - MVC Calculator
+src/main/java/org/example/
+  annotation/              custom annotations
+  exampractice/            extra GUI / mid practice (not the main topic demos)
+  filehandling/            reading and writing text files
+  generic/                 generic stack
+  genericthreads/          generics + threads
+  graphics/                Swing custom painting (JStar, past paper Q4)
+  javafx/                  JavaFX + FXML
+  jdbc/                    JDBC + SQLite
+  layeredarchitecture/     GUI → service → DAO + model
+  layouts/                 Swing layout managers
+  mvc/                     MVC calculator / temperature converter
+  orm/                     Hibernate
+  reflection/              reflection over a shape hierarchy
+  rmi/                     RMI client/server
+  serialization/           object serialization
+  sockets/                 TCP client/server demos and games
+  table/                   JTable + shopping cart + todo list
+  testing/                 classes under test (JUnit lives in src/test/java)
+  threads/                 threading, producer-consumer, loading bar
+  web/                     HTTP GET/POST with Swing
 
-#### Option 2: Running from IDE
-Simply run any Swing class with a `main` method directly from your IDE.
+docs/                      cheat sheets (extends vs implements, JAR commands)
+ant/build.xml              Ant compile / jar / sign example
+Notes/                     course notes
+Slides/                    lecture slides
+data/                      SQLite DBs and generated files (created at runtime)
+```
 
-## Database Configuration
-SQL-lite3
-### System Properties
-The `system.properties` file is already present in `src/main/resources/` (don't worry, I have pushed that as well).
+## Prerequisites
+
+- JDK 21
+- Maven 3.x
+- IntelliJ IDEA (or any Maven-aware IDE)
+
+## How to run
+
+Full command list for every demo: [run.md](run.md).
+
+### JavaFX
+
+Default main class is `org.example.javafx.HelloFx`.
+
+```bash
+mvn javafx:run
+```
+
+To run a different JavaFX class, change `<mainClass>` in `pom.xml`:
+
+- `org.example.javafx.HelloFx`
+- `org.example.javafx.HelloFx2`
+- `org.example.javafx.panes.Panes`
+
+### Swing and other `main` classes
+
+PowerShell splits `-Dexec.mainClass=...`, so quote the whole `-D` flag:
+
+```powershell
+mvn exec:java "-Dexec.mainClass=org.example.mvc.MVCCalculator"
+```
+
+Examples:
+
+| Demo | Main class |
+| --- | --- |
+| Graphics | `org.example.graphics.JStarDemo` |
+| BorderLayout | `org.example.layouts.BorderLayoutDemo` |
+| BoxLayout | `org.example.layouts.BoxLayoutShowcase` |
+| FlowLayout | `org.example.layouts.FlowLayoutShowcase` |
+| Layout comparison | `org.example.layouts.LayoutComparisonDemo` |
+| MVC calculator | `org.example.mvc.MVCCalculator` |
+| Layered architecture | `org.example.layeredarchitecture.ShopGui` |
+| Mid GUI practice | `org.example.exampractice.mid1.MidGui` |
+| Table demo | `org.example.exampractice.TableDemo` |
+
+You can also open any class with a `main` method and run it from the IDE.
+
+### Tests
+
+```bash
+mvn test
+```
+
+JUnit tests are in `src/test/java/org/example/testing/`.
+
+## Database
+
+SQLite files are written under `data/` (see `src/main/resources/system.properties`). Hibernate demos use an in-memory H2 database configured in `src/main/resources/hibernate.cfg.xml`.
+
+## Past papers
+
+[SCD past papers](https://github.com/saleha-muzammil/Academic-Time-Machine/tree/main/SCD)
